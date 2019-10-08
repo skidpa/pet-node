@@ -5,7 +5,7 @@ let path = require('path');
 
 let pets = require('./javascript/pet.js');
 
-app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__dirname, '/public/images')));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/pages/index.html'))
