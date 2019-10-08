@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>info</title>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js" type="text/javascript"> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        axios.get('/data').then(function (response) {
+            for (const l in response.data){
+
+
+                //works
+                document.getElementById("infotitle"+l).innerHTML = response.data[l]['name'];
+                document.getElementById("name"+l).innerHTML = response.data[l]['name'];
+                document.getElementById("age"+l).innerHTML = response.data[l]['age'];
+                document.getElementById("type"+l).innerHTML = response.data[l]['type'];
+                document.getElementById("hobby"+l).innerHTML = response.data[l]['hobbies'];
+
+            }
+            /*document.getElementById("infotitle1").innerHTML = response.data[0]["name"];
+            document.getElementById("name1").innerHTML = response.data[0]["name"];
+            document.getElementById("age1").innerHTML = response.data[0]["age"];
+            document.getElementById("type1").innerHTML = response.data[0]["type"];
+            document.getElementById("hobby1").innerHTML = response.data[0]["hobbies"];
+            document.getElementById("infotitle2").innerHTML = response.data[1]["name"];
+            document.getElementById("name2").innerHTML = response.data[1]["name"];
+            document.getElementById("age2").innerHTML = response.data[1]["age"];
+            document.getElementById("type2").innerHTML = response.data[1]["type"];
+            document.getElementById("hobby2").innerHTML = response.data[1]["hobbies"];*/
+        })
+    </script>
+
+
+</head>
+<body>
+    <h2>Info about <span id="infotitle0"></span></h2>
+    Name: <span id="name0"></span><br>
+    age: <span id="age0"></span><br>
+    Type: <span id="type0"></span><br>
+    Hobbies: <span id="hobby0"></span>
+    <p></p>
+    <h2>Info about <span id="infotitle1"></span></h2>
+    Name: <span id="name1"></span><br>
+    age: <span id="age1"></span><br>
+    Type: <span id="type1"></span><br>
+    Hobbies: <span id="hobby1"></span>
+
+</body>
+</html>
