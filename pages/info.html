@@ -7,15 +7,46 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
         axios.get('/data').then(function (response) {
-            for (const l in response.data){
-
+            for (const petObjectNum in response.data){
 
                 //works
-                document.getElementById("infotitle"+l).innerHTML = response.data[l]['name'];
-                document.getElementById("name"+l).innerHTML = response.data[l]['name'];
-                document.getElementById("age"+l).innerHTML = response.data[l]['age'];
-                document.getElementById("type"+l).innerHTML = response.data[l]['type'];
-                document.getElementById("hobby"+l).innerHTML = response.data[l]['hobbies'];
+                /*document.getElementById("infotitle"+petObjectNum).innerHTML = response.data[petObjectNum]['name'];
+                document.getElementById("name"+petObjectNum).innerHTML = response.data[petObjectNum]['name'];
+                document.getElementById("age"+petObjectNum).innerHTML = response.data[petObjectNum]['age'];
+                document.getElementById("type"+petObjectNum).innerHTML = response.data[petObjectNum]['type'];
+                document.getElementById("hobby"+petObjectNum).innerHTML = response.data[petObjectNum]['hobbies'];*/
+
+                //testing now works
+
+                let petTitle = document.createElement('h2');
+                petTitle.id = response.data[petObjectNum]['name'];
+                document.body.appendChild(petTitle);
+                document.getElementById(petTitle.id).innerHTML = 'Info about ' + response.data[petObjectNum]['name'];
+                petTitle.appendChild(document.createElement("br"));
+
+                let petName = document.createElement('span');
+                petName.id = 'name'+petObjectNum;
+                document.body.appendChild(petName);
+                document.getElementById(petName.id).innerHTML = 'Name: ' + response.data[petObjectNum]['name'];
+                petName.appendChild(document.createElement("br"));
+
+                let petAge = document.createElement('span');
+                petAge.id = 'age'+petObjectNum;
+                document.body.appendChild(petAge);
+                document.getElementById(petAge.id).innerHTML = 'Age: ' + response.data[petObjectNum]['age'];
+                petAge.appendChild(document.createElement("br"));
+
+                let petType = document.createElement('span');
+                petType.id = 'type'+petObjectNum;
+                document.body.appendChild(petType);
+                document.getElementById(petType.id).innerHTML = 'Type: ' + response.data[petObjectNum]['type'];
+                petType.appendChild(document.createElement("br"));
+
+                let petHobby = document.createElement('span');
+                petHobby.id = 'petHobby'+petObjectNum;
+                document.body.appendChild(petHobby);
+                document.getElementById(petHobby.id).innerHTML = 'Hobbies: ' + response.data[petObjectNum]['hobbies'];
+                petHobby.appendChild(document.createElement("br"));
 
             }
             /*document.getElementById("infotitle1").innerHTML = response.data[0]["name"];
@@ -34,7 +65,7 @@
 
 </head>
 <body>
-    <h2>Info about <span id="infotitle0"></span></h2>
+    <!--<h2>Info about <span id="infotitle0"></span></h2>
     Name: <span id="name0"></span><br>
     age: <span id="age0"></span><br>
     Type: <span id="type0"></span><br>
@@ -44,7 +75,7 @@
     Name: <span id="name1"></span><br>
     age: <span id="age1"></span><br>
     Type: <span id="type1"></span><br>
-    Hobbies: <span id="hobby1"></span>
+    Hobbies: <span id="hobby1"></span> -->
 
 </body>
 </html>
